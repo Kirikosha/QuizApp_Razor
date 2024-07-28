@@ -1,2 +1,46 @@
 @page
 @model CreateQuizModel
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelper
+
+<div class="quiz-container">
+    <div class="quiz-title">
+        <h1 class="quiz-title-h1">Here should be quiz name</h1>
+    </div>
+    <div class="quiz-questions">
+        <div class="quiz-question">
+            <div class="quiz-question-main-content">
+                <div class="quiz-question-title">
+                    <p class="quiz-question-title-quesiton-number question-title-font-size">Question n:</p>
+                    <input type="text" class="quiz-question-title-input question-title-font-size">
+                </div>
+                <div class="quiz-question-answers">
+                    <div class="quiz-question-answer-correctness">
+                        <p>Is right</p>
+                    </div>
+                    <div class="quiz-question-answer">
+                        <input type="checkbox">
+                        <p class="quiz-question-answer-letter">A)</p>
+                        <input class="quiz-question-answer-text" type="text" placeholder="Input your answer here">
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-question-buttons">
+                <button class="circle-button add-answer-button"></button>
+                <button class="circle-button delete-answer-button"></button>
+                <button class="delete-question-button"></button>
+            </div>
+        </div>
+    </div>
+    <div class="quiz-add-question-button-div">
+        <button class="quiz-add-question-button">New question</button>
+    </div>
+    <div class="quiz-general-buttons">
+        <div class="quiz-general-confirm-button-div">
+            <button class="quiz-general-confirm-button quiz-general-button-style">Confirm</button>
+        </div>
+        <div class="quiz-general-cancel-button-div">
+            <button class="quiz-general-cancel-button quiz-general-button-style">Cancel</button>
+        </div>
+    </div>
+</div>
