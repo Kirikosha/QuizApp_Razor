@@ -1,3 +1,6 @@
 {
-    "dotnet.defaultSolution": "QuizApp-Razor.sln"
+    "dotnet.defaultSolution": "QuizApp-Razor.sln",
+    "cSpell.words": [
+        "divs"
+    ]
 }

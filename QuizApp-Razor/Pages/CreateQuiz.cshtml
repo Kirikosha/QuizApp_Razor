@@ -7,11 +7,11 @@
     <div class="quiz-title">
         <h1 class="quiz-title-h1">Here should be quiz name</h1>
     </div>
-    <div class="quiz-questions">
+    <div class="quiz-questions" id="questions">
         <div class="quiz-question">
             <div class="quiz-question-main-content">
                 <div class="quiz-question-title">
-                    <p class="quiz-question-title-quesiton-number question-title-font-size">Question n:</p>
+                    <p class="quiz-question-title-question-number question-title-font-size">Question 1:</p>
                     <input type="text" class="quiz-question-title-input question-title-font-size">
                 </div>
                 <div class="quiz-question-answers">
@@ -26,14 +26,14 @@
                 </div>
             </div>
             <div class="quiz-question-buttons">
-                <button class="circle-button add-answer-button"></button>
-                <button class="circle-button delete-answer-button"></button>
-                <button class="delete-question-button"></button>
+                <button class="circle-button add-answer-button" onclick="createAnswer(this)"></button>
+                <button class="circle-button delete-answer-button" onclick="deleteAnswer(this)"></button>
+                <button class="delete-question-button" onclick="deleteQuestion(this)"></button>
             </div>
         </div>
     </div>
     <div class="quiz-add-question-button-div">
-        <button class="quiz-add-question-button">New question</button>
+        <button class="quiz-add-question-button" onclick="createQuestion()">New question</button>
     </div>
     <div class="quiz-general-buttons">
         <div class="quiz-general-confirm-button-div">

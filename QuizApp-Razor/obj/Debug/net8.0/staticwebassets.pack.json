@@ -13,6 +13,18 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\All_C#\\C#_Projects\\BIGPROJECTS\\40ProjectSerie\\QuizApps\\Razor\\QuizApp-Razor\\wwwroot\\images\\bin.png",
+      "PackagePath": "staticwebassets\\images\\bin.png"
+    },
+    {
+      "Id": "D:\\All_C#\\C#_Projects\\BIGPROJECTS\\40ProjectSerie\\QuizApps\\Razor\\QuizApp-Razor\\wwwroot\\images\\minus-sign.png",
+      "PackagePath": "staticwebassets\\images\\minus-sign.png"
+    },
+    {
+      "Id": "D:\\All_C#\\C#_Projects\\BIGPROJECTS\\40ProjectSerie\\QuizApps\\Razor\\QuizApp-Razor\\wwwroot\\images\\plus.png",
+      "PackagePath": "staticwebassets\\images\\plus.png"
+    },
+    {
       "Id": "D:\\All_C#\\C#_Projects\\BIGPROJECTS\\40ProjectSerie\\QuizApps\\Razor\\QuizApp-Razor\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
