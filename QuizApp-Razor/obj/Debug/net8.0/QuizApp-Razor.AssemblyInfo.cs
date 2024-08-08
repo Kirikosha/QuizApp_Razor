@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QuizApp-Razor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7de2e0154b75eb74efe01d744467793b68460b17")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8c1b351f34871dd10eb2f6cb6573d758831749fc")]
 [assembly: System.Reflection.AssemblyProductAttribute("QuizApp-Razor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QuizApp-Razor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

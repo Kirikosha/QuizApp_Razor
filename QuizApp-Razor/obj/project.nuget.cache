@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "tJpWvapyKD0=",
+  "dgSpecHash": "xgFDPUPuP4A=",
   "success": true,
-  "projectFilePath": "D:\\All_C#\\C#_Projects\\BIGPROJECTS\\40ProjectSerie\\QuizApps\\Razor\\QuizApp-Razor\\QuizApp-Razor.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "d:\\All_C#\\C#_Projects\\BIGPROJECTS\\40ProjectSerie\\QuizApps\\Razor\\QuizApp-Razor\\QuizApp-Razor.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kirik\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",
+    "C:\\Users\\kirik\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.1\\microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
+    "C:\\Users\\kirik\\.nuget\\packages\\mysqlconnector\\2.3.7\\mysqlconnector.2.3.7.nupkg.sha512",
+    "C:\\Users\\kirik\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

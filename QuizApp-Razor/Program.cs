@@ -1,8 +1,15 @@
+using QuizApp_Razor.Database;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-
+builder.Services.AddAntiforgery(a => a.HeaderName = "XSRF-TOKEN");
+builder.Services.AddScoped<IConnector, Connector>();
+builder.Services.AddScoped<IDbService, DbService>();
+builder.Services.AddLogging(logging => {
+    logging.AddConsole();
+    logging.AddDebug();
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

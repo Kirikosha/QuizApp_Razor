@@ -29,3 +29,8 @@ D:\All_C#\C#_Projects\BIGPROJECTS\40ProjectSerie\QuizApps\Razor\QuizApp-Razor\ob
 D:\All_C#\C#_Projects\BIGPROJECTS\40ProjectSerie\QuizApps\Razor\QuizApp-Razor\obj\Debug\net8.0\QuizApp-Razor.pdb
 D:\All_C#\C#_Projects\BIGPROJECTS\40ProjectSerie\QuizApps\Razor\QuizApp-Razor\obj\Debug\net8.0\QuizApp-Razor.genruntimeconfig.cache
 D:\All_C#\C#_Projects\BIGPROJECTS\40ProjectSerie\QuizApps\Razor\QuizApp-Razor\obj\Debug\net8.0\ref\QuizApp-Razor.dll
+D:\All_C#\C#_Projects\BIGPROJECTS\40ProjectSerie\QuizApps\Razor\QuizApp-Razor\bin\Debug\net8.0\Dapper.dll
+D:\All_C#\C#_Projects\BIGPROJECTS\40ProjectSerie\QuizApps\Razor\QuizApp-Razor\obj\Debug\net8.0\QuizApp-Razor.csproj.AssemblyReference.cache
+D:\All_C#\C#_Projects\BIGPROJECTS\40ProjectSerie\QuizApps\Razor\QuizApp-Razor\obj\Debug\net8.0\QuizApp-.D4F5564B.Up2Date
+D:\All_C#\C#_Projects\BIGPROJECTS\40ProjectSerie\QuizApps\Razor\QuizApp-Razor\bin\Debug\net8.0\MySqlConnector.dll
+D:\All_C#\C#_Projects\BIGPROJECTS\40ProjectSerie\QuizApps\Razor\QuizApp-Razor\bin\Debug\net8.0\Newtonsoft.Json.dll

@@ -1,46 +1,46 @@
 @page
 @model CreateQuizModel
-
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelper
-
+<form id="creationForm" method="POST" asp-asp-antiforgery="false">
 <div class="quiz-container">
     <div class="quiz-title">
-        <h1 class="quiz-title-h1">Here should be quiz name</h1>
+        <input type="text" placeholder="Input your quiz title" id="title"></input>
     </div>
     <div class="quiz-questions" id="questions">
         <div class="quiz-question">
             <div class="quiz-question-main-content">
                 <div class="quiz-question-title">
                     <p class="quiz-question-title-question-number question-title-font-size">Question 1:</p>
-                    <input type="text" class="quiz-question-title-input question-title-font-size">
+                    <input type="text" class="quiz-question-title-input question-title-font-size" name="question_title_1">
                 </div>
                 <div class="quiz-question-answers">
                     <div class="quiz-question-answer-correctness">
                         <p>Is right</p>
                     </div>
                     <div class="quiz-question-answer">
-                        <input type="checkbox">
+                        <input type="checkbox" name="is_right_1_1">
                         <p class="quiz-question-answer-letter">A)</p>
-                        <input class="quiz-question-answer-text" type="text" placeholder="Input your answer here">
+                        <input class="quiz-question-answer-text" type="text" placeholder="Input your answer here" name="answer_1_1">
                     </div>
                 </div>
             </div>
             <div class="quiz-question-buttons">
-                <button class="circle-button add-answer-button" onclick="createAnswer(this)"></button>
-                <button class="circle-button delete-answer-button" onclick="deleteAnswer(this)"></button>
-                <button class="delete-question-button" onclick="deleteQuestion(this)"></button>
+                <button class="circle-button add-answer-button" onclick="createAnswer(this)" type="button"></button>
+                <button class="circle-button delete-answer-button" onclick="deleteAnswer(this)" type="button"></button>
+                <button class="delete-question-button" onclick="deleteQuestion(this)" type="button"></button>
             </div>
         </div>
     </div>
     <div class="quiz-add-question-button-div">
-        <button class="quiz-add-question-button" onclick="createQuestion()">New question</button>
+        <button class="quiz-add-question-button" onclick="createQuestion()" type="button">New question</button>
     </div>
     <div class="quiz-general-buttons">
         <div class="quiz-general-confirm-button-div">
             <button class="quiz-general-confirm-button quiz-general-button-style">Confirm</button>
         </div>
         <div class="quiz-general-cancel-button-div">
-            <button class="quiz-general-cancel-button quiz-general-button-style">Cancel</button>
+            <button class="quiz-general-cancel-button quiz-general-button-style" type="button" onclick="getFields()">Cancel</button>
         </div>
     </div>
 </div>
+</form>
