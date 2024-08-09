@@ -32,58 +32,56 @@ public class CreateQuizModel : PageModel{
         var jsonDocument = JsonDocument.Parse(jsonString);
         var rootElement = jsonDocument.RootElement;
         Dictionary<Question, IEnumerable<Answer>> result = new Dictionary<Question, IEnumerable<Answer>>();
-        JsonElement questions;
-        var successfulQuestionsGet = rootElement.TryGetProperty("questions", out questions);
-        if(!successfulQuestionsGet) {
-            _logger.LogError($"Error in {rootElement} questions parsing");
-            return new Dictionary<Question, IEnumerable<Answer>>();
-        }
+        JsonElement questions = Parse("questions", "questions parsing", rootElement);
+        if (questions.ValueKind == JsonValueKind.Undefined) return new Dictionary<Question, IEnumerable<Answer>>();
 
         foreach (var questionElement in questions.EnumerateArray()){
-            JsonElement questionTitle;
-            var successfulQuestionTitleGet = questionElement.TryGetProperty("questionTitle", out questionTitle);
-            if (!successfulQuestionTitleGet){
-                _logger.LogError($"Error in {questions} question title parsing");
-                return new Dictionary<Question, IEnumerable<Answer>>();
-            }
+            Question? question = GetQuestion(questionElement);
+            if(question == null) return new Dictionary<Question, IEnumerable<Answer>>();
+            List<Answer> answers = GetAnswers(questionElement);
+            result.Add(question, answers);
+        }
+        return result;
+    }
 
-            Question question = new Question{
-                Text = questionTitle.GetString() ?? "Default question title"
+    private Question? GetQuestion(JsonElement questionElement){
+        JsonElement questionTitle = Parse("questionTitle", "question title parsing", questionElement);
+        if (questionTitle.ValueKind == JsonValueKind.Undefined) return null;
+
+        Question question = new Question{
+            Text = questionTitle.GetString() ?? "Default question title"
+        };
+        return question;
+    }
+
+    private List<Answer> GetAnswers(JsonElement questionElement){
+        List<Answer> answers = new List<Answer>();
+        JsonElement answersInJson = Parse("answers", "answers parsing", questionElement);
+        if(answersInJson.ValueKind == JsonValueKind.Undefined) return new List<Answer>();
+
+        foreach(var answerElement in answersInJson.EnumerateArray()){
+            JsonElement answerText = Parse("text", "parsing text", answerElement);
+            if(answersInJson.ValueKind == JsonValueKind.Undefined) return new List<Answer>();
+
+            JsonElement answerIsCorrect = Parse("isCorrect", "parsing correctness", answerElement);
+            if(answerIsCorrect.ValueKind == JsonValueKind.Undefined) return new List<Answer>();
+
+            Answer answer = new Answer{
+                Text = answerText.GetString() ?? "Default answer",
+                IsCorrect = answerIsCorrect.GetBoolean()
             };
 
-            List<Answer> answers = new List<Answer>();
+            answers.Add(answer);
+        }
+        return answers;
+    }
 
-            JsonElement answersInJson;
-            var successfulAnswersGet = questionElement.TryGetProperty("answers", out answersInJson);
-            if(!successfulAnswersGet){
-                _logger.LogError($"Error in {questions} answers parsing");
-                return new Dictionary<Question, IEnumerable<Answer>>();
-            }
-
-            foreach(var answerElement in answersInJson.EnumerateArray()){
-                JsonElement answerText;
-                var successfulAnswerTextGet = answerElement.TryGetProperty("text", out answerText);
-                if (!successfulAnswerTextGet){
-                    _logger.LogError($"Error in {answerElement} parsing text");
-                    return new Dictionary<Question, IEnumerable<Answer>>();
-                }
-
-                JsonElement answerIsCorrect;
-                var successfulAnswerIsCorrectGet = answerElement.TryGetProperty("isCorrect", out answerIsCorrect);
-                if (!successfulAnswerIsCorrectGet){
-                    _logger.LogError($"Error in {answerElement} parsing correctness");
-                    return new Dictionary<Question, IEnumerable<Answer>>();
-                }
-
-                Answer answer = new Answer{
-                    Text = answerText.GetString() ?? "Default answer",
-                    IsCorrect = answerIsCorrect.GetBoolean()
-                };
-
-                answers.Add(answer);
-            }
-
-            result.Add(question, answers);
+    private JsonElement Parse(string propertyName, string errorMessage, JsonElement parent){
+        JsonElement result;
+        bool isSuccess = parent.TryGetProperty(propertyName, out result);
+        if (!isSuccess){
+            _logger.LogError($"Error in {parent} {errorMessage}");
+            return default;
         }
         return result;
     }
