@@ -38,15 +38,6 @@ body {
   margin-bottom: 5rem;
 }
 
-.quiz-title-h1{
-  text-align: center;
-  color:white;
-  height: fit-content;
-  position: absolute;
-  top:50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 
 .quiz-add-question-button-div{
   border-radius: 10px;
@@ -238,4 +229,15 @@ body {
 .quiz-general-cancel-button-div{
   width: 50%;
   float:right
+}
+
+#title{
+  border: none;
+  border-radius: 10px;
+  font-size: 32px;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 75%;
 }

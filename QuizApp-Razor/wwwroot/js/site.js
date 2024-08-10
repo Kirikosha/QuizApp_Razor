@@ -1,5 +1,56 @@
 ﻿const letters = ['B', 'C', 'D'];
 
+document.getElementById("creationForm").addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var title = document.getElementById("title").value.trim();
+    if (!title){
+        alert("Quiz title is required");
+        return;
+    }
+
+    var questionsDiv = document.getElementById("questions");
+    var questions = questionsDiv.querySelectorAll(".quiz-question");
+
+    let isFormValid = true; // Flag to check if form is valid
+
+    questions.forEach((question, qIndex) =>{
+        if(!isFormValid){
+            return;
+        }
+        const questionTitle = question.querySelector(`input[name="question_title_${qIndex + 1}"]`).value.trim();
+        if (!questionTitle){
+            alert(`Question ${qIndex + 1} title is required`);
+            isFormValid = false;
+            return;
+        }
+
+        var answers = question.querySelectorAll(".quiz-question-answer");
+        var atLeastOneCorrect = 0;
+
+        answers.forEach((answer, aIndex) => {
+            const answerCorrect = answer.querySelector(`input[name="is_right_${qIndex + 1}_${aIndex + 1}"]`).checked;
+            atLeastOneCorrect = answerCorrect ? atLeastOneCorrect + 1 : atLeastOneCorrect;
+
+            const answerText = answer.querySelector(`input[name="answer_${qIndex + 1}_${aIndex + 1}"]`).value.trim();
+            if(!answerText){
+                alert(`Answer ${aIndex + 1} in question ${qIndex + 1} hasn't or has a wrong text`);
+                isFormValid = false;
+                return;
+            }
+        });
+
+        if (atLeastOneCorrect == 0){
+            alert(`At least one answer in question number ${qIndex + 1} should be correct`);
+            isFormValid = false;
+            return;
+        }
+    });
+
+    if (isFormValid) {
+        getFields(); // Only call this if the form is valid
+    }
+});
 function createQuestion(){
         var newElementNumber = getNumberOfQuestions() + 1;
         var quizQuestionHTML = `
@@ -32,62 +83,62 @@ function createQuestion(){
 }
 
 function getNumberOfQuestions(){
-    var question_collection = document.querySelector('.quiz-questions');
-    if(question_collection){
-        return question_collection.children.length;
+    var questionCollection = document.querySelector('.quiz-questions');
+    if(questionCollection){
+        return questionCollection.children.length;
     } else{
         return 0;
     }
 }
 
 function createAnswer(caller){
-    var quiz_answers_div = caller.parentNode.parentNode.children[0].children[1];
-    var quiz_title = caller.parentNode.parentNode.children[0].children[0].children[1].name;
-    var question_number = quiz_title.split('_')[2];
-    var number_of_answers = quiz_answers_div.children.length - 1;
-    if(number_of_answers < 4){
-        var quiz_answer_html =`
+    var quizAnswersDiv = caller.parentNode.parentNode.children[0].children[1];
+    var quizTitle = caller.parentNode.parentNode.children[0].children[0].children[1].name;
+    var questionNumber = quizTitle.split('_')[2];
+    var numberOfAnswers = quizAnswersDiv.children.length - 1;
+    if(numberOfAnswers < 4){
+        var quizAnswerHtml =`
         <div class="quiz-question-answer">
-                        <input type="checkbox" name="is_right_${question_number}_${number_of_answers + 1}">
-                        <p class="quiz-question-answer-letter">${letters[number_of_answers - 1]})</p>
-                        <input class="quiz-question-answer-text" type="text" placeholder="Input your answer here" name="answer_${question_number}_${number_of_answers + 1}">
+                        <input type="checkbox" name="is_right_${questionNumber}_${numberOfAnswers + 1}">
+                        <p class="quiz-question-answer-letter">${letters[numberOfAnswers - 1]})</p>
+                        <input class="quiz-question-answer-text" type="text" placeholder="Input your answer here" name="answer_${questionNumber}_${numberOfAnswers + 1}">
                         </div>`;
-        quiz_answers_div.insertAdjacentHTML('beforeend', quiz_answer_html);
+        quizAnswersDiv.insertAdjacentHTML('beforeend', quizAnswerHtml);
     }
 }
 
 function deleteAnswer(caller){
-    var quiz_answers_div = caller.parentNode.parentNode.children[0].children[1];
-    var number_of_answers = quiz_answers_div.children.length - 1;
-    if(number_of_answers > 1){
-        quiz_answers_div.removeChild(quiz_answers_div.children[quiz_answers_div.children.length - 1]);
+    var quizAnswersDiv = caller.parentNode.parentNode.children[0].children[1];
+    var numberOfAnswers = quizAnswersDiv.children.length - 1;
+    if(numberOfAnswers > 1){
+        quizAnswersDiv.removeChild(quizAnswersDiv.children[quizAnswersDiv.children.length - 1]);
     }
-    console.log(quiz_answers_div.children);
+    console.log(quizAnswersDiv.children);
 }
 
 function deleteQuestion(caller){
-    var quiz_question_div = caller.parentNode.parentNode;
-    var quiz_questions_div = quiz_question_div.parentNode;
-    if(quiz_questions_div.children.length > 1 && window.confirm("Do you REALLY want to delete this question?")){
-        quiz_questions_div.removeChild(quiz_question_div);
-        renumberQuestions(quiz_questions_div);
+    var quizQuestionDiv = caller.parentNode.parentNode;
+    var quizQuestionsDiv = quizQuestionDiv.parentNode;
+    if(quizQuestionsDiv.children.length > 1 && window.confirm("Do you REALLY want to delete this question?")){
+        quizQuestionsDiv.removeChild(quizQuestionDiv);
+        renumberQuestions(quizQuestionsDiv);
     }
 }
 
-function renumberQuestions(quiz_questions_div) {
-    var question_divs = quiz_questions_div.getElementsByClassName('quiz-question');
-    for (var i = 0; i < question_divs.length; i++) {
-        var question_number = i + 1; // Numbers start from 1
-        var question_title_number = question_divs[i].querySelector('.quiz-question-title-question-number');
-        question_title_number.innerText = `Question ${question_number}:`;
-        var question_title_input_name = question_divs[i].querySelector(".quiz-question-title-input");
-        question_title_input_name.name = `question_title_${question_number}`;
+function renumberQuestions(quizQuestionsDiv) {
+    var questionDivs = quizQuestionsDiv.getElementsByClassName('quiz-question');
+    for (var i = 0; i < questionDivs.length; i++) {
+        var questionNumber = i + 1; // Numbers start from 1
+        var questionTitleNumber = questionDivs[i].querySelector('.quiz-question-title-question-number');
+        questionTitleNumber.innerText = `Question ${questionNumber}:`;
+        var questionTitleInputName = questionDivs[i].querySelector(".quiz-question-title-input");
+        questionTitleInputName.name = `question_title_${questionNumber}`;
 
-        var question_answers_div = question_divs[i].querySelectorAll(".quiz-question-answer");
-        var len = question_answers_div.length;
-        for (var j = 0; j < question_answers_div.length; j++){
-            question_answers_div[j].children[0].name = `is_right_${question_number}_${j + 1}`;
-            question_answers_div[j].children[2].name = `answer_${question_number}_${j + 1}`;
+        var questionAnswersDiv = questionDivs[i].querySelectorAll(".quiz-question-answer");
+        var len = questionAnswersDiv.length;
+        for (var j = 0; j < questionAnswersDiv.length; j++){
+            questionAnswersDiv[j].children[0].name = `is_right_${questionNumber}_${j + 1}`;
+            questionAnswersDiv[j].children[2].name = `answer_${questionNumber}_${j + 1}`;
         }
     }
 }
@@ -110,7 +161,7 @@ function getFields() {
         };
 
         const answers = question.querySelectorAll('.quiz-question-answer');
-        answers.forEach((answer, answerIndex) => {
+        answers.forEach((_, answerIndex) => {
             const answerNumber = answerIndex + 1;
             questionData.answers.push({
                 text: formData.get(`answer_${questionNumber}_${answerNumber}`),
