@@ -25,7 +25,7 @@ public class CreateQuizModel : PageModel{
                 _dbService.CreateQuiz(new Quiz{Title = title}, result);
             }
         }
-        return StatusCode(202);
+        return RedirectToPage("/Index");
     }
 
     private Dictionary<Question, IEnumerable<Answer>> GetMainData(string jsonString){

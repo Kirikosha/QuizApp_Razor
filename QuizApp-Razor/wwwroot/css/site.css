@@ -241,3 +241,36 @@ body {
   transform: translate(-50%, -50%);
   opacity: 75%;
 }
+
+#title-g{
+  font-size: 36px;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 75%;
+}
+
+.quiz-question-title-g{
+  height: fit-content;
+  margin-left:5px;
+}
+
+.quiz-question-title-question-number{
+  opacity: 70%;
+}
+
+.quiz-question-answer-g{
+  display: flex;
+  align-items: center;
+}
+
+.quiz-question-answer-text-g{
+  width: 400px;
+  padding: 4px;
+}
+
+.quiz-question-answer-letter, .quiz-question-answer-text-g {
+  margin: 0;
+  margin-left: 2px;
+}
