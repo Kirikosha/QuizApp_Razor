@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\images\\plus.png"
     },
     {
+      "Id": "d:\\All_C#\\C#_Projects\\BIGPROJECTS\\40ProjectSerie\\QuizApps\\Razor\\QuizApp-Razor\\wwwroot\\js\\quiz.js",
+      "PackagePath": "staticwebassets\\js\\quiz.js"
+    },
+    {
       "Id": "d:\\All_C#\\C#_Projects\\BIGPROJECTS\\40ProjectSerie\\QuizApps\\Razor\\QuizApp-Razor\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

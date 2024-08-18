@@ -24,4 +24,14 @@ public class QuizModel : PageModel {
         QuestionAnswers = data.Item2;
         return new PageResult();
     }
+
+    public async Task<ActionResult> OnPost(int id, [FromBody] List<string> answers)
+    {
+        int[] ids = answers.Select(int.Parse).ToArray();
+        var idsJoined = string.Join(",", ids);
+        List<Answer> answersList = await _dbService.GetAnswers(idsJoined);
+        int correctGuesses = answersList.Count(a => a.IsCorrect);
+        Console.WriteLine($"Your result is {correctGuesses}/{ids.Length}");
+        return new StatusCodeResult(204);
+    }
 }

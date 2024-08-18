@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PGOOwMbvZQZcj3rWml/nDBEcixauVt/DF31cxfl36VI=",
+  "Hash": "NtksX/xNSW+Bl69b8Zlt2mz4ohronmFiyabBQEAX5wQ=",
   "Source": "QuizApp-Razor",
   "BasePath": "_content/QuizApp-Razor",
   "Mode": "Default",
@@ -148,6 +148,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\plus.png"
+    },
+    {
+      "Identity": "d:\\All_C#\\C#_Projects\\BIGPROJECTS\\40ProjectSerie\\QuizApps\\Razor\\QuizApp-Razor\\wwwroot\\js\\quiz.js",
+      "SourceId": "QuizApp-Razor",
+      "SourceType": "Discovered",
+      "ContentRoot": "d:\\All_C#\\C#_Projects\\BIGPROJECTS\\40ProjectSerie\\QuizApps\\Razor\\QuizApp-Razor\\wwwroot\\",
+      "BasePath": "_content/QuizApp-Razor",
+      "RelativePath": "js/quiz.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\quiz.js"
     },
     {
       "Identity": "d:\\All_C#\\C#_Projects\\BIGPROJECTS\\40ProjectSerie\\QuizApps\\Razor\\QuizApp-Razor\\wwwroot\\js\\site.js",

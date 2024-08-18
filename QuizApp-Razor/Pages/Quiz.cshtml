@@ -1,29 +1,48 @@
 @page "/Quiz/{id:int}"
 @model QuizModel
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelper
 
+<form id="completeQuiz" method="POST", asp-asp-antiforgery="false">
 <div class="quiz-container">
     <div class="quiz-title">
         <h1 id="title-g">@Model.Quiz.Title</h1>
     </div>
+    <input type="hidden" value="@Model.Quiz.QuizId" id="quizId"/>
     <div class="quiz-questions" id="questions">
-        <div class="quiz-question">
-            <div class="quiz-question-main-content">
-                <div class="quiz-question-title">
-                    <p class="quiz-question-title-question-number question-title-font-size">Question 1:</p>
-                    <p  class="quiz-question-title-g question-title-font-size">Question title</p>
-                </div>
-                <div class="quiz-question-answers">
-                    <div class="quiz-question-answer-correctness">
-                        <p>Your choice</p>
+        @{
+            int counter = 1;
+            char[] letters = new char[] { 'A', 'B', 'C', 'D' };
+        }
+        @foreach(var pairs in @Model.QuestionAnswers)
+        {
+            <div class="quiz-question">
+                <div class="quiz-question-main-content">
+                    <div class="quiz-question-title">
+                        <p class="quiz-question-title-question-number question-title-font-size">Question @(counter++):</p>
+                        <p  class="quiz-question-title-g question-title-font-size">@pairs.Key.Text</p>
                     </div>
-                    <div class="quiz-question-answer-g">
-                        <input class="question-answer" type="checkbox" name="is_right_1_1">
-                        <p class="quiz-question-answer-letter">A)</p>
-                        <p class="quiz-question-answer-text-g">Some answer</p>
+                    <div class="quiz-question-answers">
+                        <div class="quiz-question-answer-correctness">
+                            <p>Your choice</p>
+                        </div>
+                        @{
+                            int answerCounter = 0;
+                        }
+                        @foreach (var answer in pairs.Value)
+                        {
+                            <div class="quiz-question-answer-g">
+                                <input class="question-answer" type="checkbox" name="is_right_@answer.AnswerId">
+                                <p class="quiz-question-answer-letter">@letters[answerCounter++])</p>
+                                <p class="quiz-question-answer-text-g">@answer.Text</p>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
-        </div>
+        }
+    </div>
+    <div class="quiz-general-confirm-button-div">
+        <button class="quiz-general-confirm-button quiz-general-button-style" id="complete-quiz-button" type="submit">Press me if you have finished</button>
     </div>
 </div>
+</form>
+<script src="~/js/quiz.js" asp-append-version="true"></script>

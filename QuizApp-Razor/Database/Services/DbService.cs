@@ -9,6 +9,7 @@ public class DbService : IDbService {
     private const string GET_QUIZ_QUERY = "SELECT `quiz-id` AS QuizId, title AS Title FROM quiz_app_razor.quiz WHERE `quiz-id` = ";
     private const string GET_QUESTION_QUERY = "SELECT `question-id` AS QuestionId, text AS TEXT, `quiz-id` as QuizId FROM quiz_app_razor.question WHERE `quiz-id` =";
     private const string GET_ANSWER_QUERY = "SELECT `answer-id` AS AnswerId, text AS Text, `is-correct` AS IsCorrect, `question-id` AS QuestionId FROM quiz_app_razor.answer WHERE `question-id` =";
+    private const string GET_ANSWERS_BY_IDS = "SELECT `answer-id` AS AnswerId, `is-correct` AS IsCorrect FROM quiz_app_razor.answer WHERE `answer-id` IN";
     IConnector _connector;
     ILogger<DbService> _logger;
     public DbService(IConnector connector, ILogger<DbService> logger)
@@ -22,6 +23,7 @@ public class DbService : IDbService {
         int quizId = InsertQuiz(quiz);
         bool result = InsertMainData(quizId, mainData);
     }
+
 
     private int InsertQuiz(Quiz quiz){
         int id = -1;
@@ -139,6 +141,14 @@ public class DbService : IDbService {
             }
         }
         return false;
+    }
+    #endregion
+    
+    #region AnswersGet
+    public async Task<List<Answer>> GetAnswers(string ids){
+        string getAnswersQuery = string.Concat(GET_ANSWERS_BY_IDS, $"({ids})");
+        IEnumerable<Answer> answers = await _connector.GetConnection().QueryAsync<Answer>(getAnswersQuery);
+        return answers.ToList();
     }
     #endregion
 }
