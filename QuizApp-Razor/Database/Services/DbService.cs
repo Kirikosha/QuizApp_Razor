@@ -151,4 +151,25 @@ public class DbService : IDbService {
         return answers.ToList();
     }
     #endregion
+
+    #region GetCorrectAnswerCount
+    public async Task<int> GetCorrectAnswerCount(int quizId){
+        List<int> questionsIds = await GetQuestionsIdByQuizId(quizId);
+        if(questionsIds.Count() == 0){
+            _logger.LogError("Question ids were not parsed. Probably they are absent in a db or the quizId is wrong");
+            return -1;
+        }
+        string joinedIds = string.Join(",", questionsIds.ToArray());
+        string correctAnswerCountQuery = $"SELECT COUNT(*) FROM quiz_app_razor.answer WHERE `question-id` IN({joinedIds}) AND `is-correct` = 1";
+        int counted = _connector.GetConnection().ExecuteScalar<int>(correctAnswerCountQuery);
+        return counted;
+
+    }
+
+    private async Task<List<int>> GetQuestionsIdByQuizId(int quizId){
+        string getQuestionsQuery = $"SELECT `question-id` FROM quiz_app_razor.question WHERE `quiz-id` = {quizId}";
+        IEnumerable<int> questionsIds = await _connector.GetConnection().QueryAsync<int>(getQuestionsQuery);
+        return questionsIds.ToList();
+    }
+    #endregion
 }

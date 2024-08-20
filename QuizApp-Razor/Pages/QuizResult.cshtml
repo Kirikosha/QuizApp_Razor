@@ -1,0 +1,11 @@
+@page
+@model QuizResultModel
+
+<div class="result-container">
+    <div class="result-inner-div">
+        <h2>@Model.quizTitle</h2>
+        <p>There are @Model.UsersAmountOfCorrectAnswers correct answers out of @Model.TotalAmountOfCorrectAnswers correct answers</p>
+        <p>Your result is @{float val = (float)Model.UsersAmountOfCorrectAnswers / Model.TotalAmountOfCorrectAnswers * 100;} (@val)%</p>
+        <p>Good result, you are great</p>
+    </div>
+</div>

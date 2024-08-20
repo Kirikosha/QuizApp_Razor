@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\All_C#\\C#_Projects\\BIGPROJECTS\\40ProjectSerie\\QuizApps\\Razor\\QuizApp-Razor\\QuizApp-Razor.csproj": {}
+    "D:\\All_C#\\C#_Projects\\BIGPROJECTS\\40ProjectSerie\\QuizApps\\Razor\\QuizApp-Razor\\QuizApp-Razor.csproj": {}
   },
   "projects": {
-    "d:\\All_C#\\C#_Projects\\BIGPROJECTS\\40ProjectSerie\\QuizApps\\Razor\\QuizApp-Razor\\QuizApp-Razor.csproj": {
+    "D:\\All_C#\\C#_Projects\\BIGPROJECTS\\40ProjectSerie\\QuizApps\\Razor\\QuizApp-Razor\\QuizApp-Razor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\All_C#\\C#_Projects\\BIGPROJECTS\\40ProjectSerie\\QuizApps\\Razor\\QuizApp-Razor\\QuizApp-Razor.csproj",
+        "projectUniqueName": "D:\\All_C#\\C#_Projects\\BIGPROJECTS\\40ProjectSerie\\QuizApps\\Razor\\QuizApp-Razor\\QuizApp-Razor.csproj",
         "projectName": "QuizApp-Razor",
-        "projectPath": "d:\\All_C#\\C#_Projects\\BIGPROJECTS\\40ProjectSerie\\QuizApps\\Razor\\QuizApp-Razor\\QuizApp-Razor.csproj",
+        "projectPath": "D:\\All_C#\\C#_Projects\\BIGPROJECTS\\40ProjectSerie\\QuizApps\\Razor\\QuizApp-Razor\\QuizApp-Razor.csproj",
         "packagesPath": "C:\\Users\\kirik\\.nuget\\packages\\",
-        "outputPath": "d:\\All_C#\\C#_Projects\\BIGPROJECTS\\40ProjectSerie\\QuizApps\\Razor\\QuizApp-Razor\\obj\\",
+        "outputPath": "D:\\All_C#\\C#_Projects\\BIGPROJECTS\\40ProjectSerie\\QuizApps\\Razor\\QuizApp-Razor\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -2,44 +2,44 @@
 @model CreateQuizModel
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelper
 <form id="creationForm" method="POST" asp-asp-antiforgery="false">
-<div class="quiz-container">
-    <div class="quiz-title">
-        <input type="text" placeholder="Input your quiz title..." id="title"/>
+<div class="quizTitle-container">
+    <div class="quizTitle-title">
+        <input type="text" placeholder="Input your quizTitle title..." id="title"/>
     </div>
-    <div class="quiz-questions" id="questions">
-        <div class="quiz-question">
-            <div class="quiz-question-main-content">
-                <div class="quiz-question-title">
-                    <p class="quiz-question-title-question-number question-title-font-size">Question 1:</p>
-                    <input type="text" class="quiz-question-title-input question-title-font-size" name="question_title_1">
+    <div class="quizTitle-questions" id="questions">
+        <div class="quizTitle-question">
+            <div class="quizTitle-question-main-content">
+                <div class="quizTitle-question-title">
+                    <p class="quizTitle-question-title-question-number question-title-font-size">Question 1:</p>
+                    <input type="text" class="quizTitle-question-title-input question-title-font-size" name="question_title_1">
                 </div>
-                <div class="quiz-question-answers">
-                    <div class="quiz-question-answer-correctness">
+                <div class="quizTitle-question-answers">
+                    <div class="quizTitle-question-answer-correctness">
                         <p>Is right</p>
                     </div>
-                    <div class="quiz-question-answer">
+                    <div class="quizTitle-question-answer">
                         <input type="checkbox" name="is_right_1_1">
-                        <p class="quiz-question-answer-letter">A)</p>
-                        <input class="quiz-question-answer-text" type="text" placeholder="Input your answer here" name="answer_1_1">
+                        <p class="quizTitle-question-answer-letter">A)</p>
+                        <input class="quizTitle-question-answer-text" type="text" placeholder="Input your answer here" name="answer_1_1">
                     </div>
                 </div>
             </div>
-            <div class="quiz-question-buttons">
+            <div class="quizTitle-question-buttons">
                 <button class="circle-button add-answer-button" onclick="createAnswer(this)" type="button"></button>
                 <button class="circle-button delete-answer-button" onclick="deleteAnswer(this)" type="button"></button>
                 <button class="delete-question-button" onclick="deleteQuestion(this)" type="button"></button>
             </div>
         </div>
     </div>
-    <div class="quiz-add-question-button-div">
-        <button class="quiz-add-question-button" onclick="createQuestion()" type="button">New question</button>
+    <div class="quizTitle-add-question-button-div">
+        <button class="quizTitle-add-question-button" onclick="createQuestion()" type="button">New question</button>
     </div>
-    <div class="quiz-general-buttons">
-        <div class="quiz-general-confirm-button-div">
-            <button class="quiz-general-confirm-button quiz-general-button-style">Confirm</button>
+    <div class="quizTitle-general-buttons">
+        <div class="quizTitle-general-confirm-button-div">
+            <button class="quizTitle-general-confirm-button quizTitle-general-button-style">Confirm</button>
         </div>
-        <div class="quiz-general-cancel-button-div">
-            <button class="quiz-general-cancel-button quiz-general-button-style" type="button" onclick="getFields()">Cancel</button>
+        <div class="quizTitle-general-cancel-button-div">
+            <button class="quizTitle-general-cancel-button quizTitle-general-button-style" type="button" onclick="getFields()">Cancel</button>
         </div>
     </div>
 </div>
